@@ -179,7 +179,7 @@ public class Utils {
 
   /**
    * Creates a rectangle which opposite corners are lying in the specified points.
-   * 
+   *
    * @param p1
    * @param p2
    * @return
@@ -208,6 +208,12 @@ public class Utils {
   }
 
   public static String getUserDataDirectory(String appName) {
-    return System.getProperty("user.home") + File.separator + appName + File.separator;
+    // Check if the user has preferred a hidden directory
+    File hidden_check = new File(System.getProperty("user.home") + File.separator + "." + appName + File.separator + "USE_HIDDEN_DIR");
+    if (hidden_check.exists()) {
+      return System.getProperty("user.home") + File.separator + "." + appName + File.separator;
+    } else {
+      return System.getProperty("user.home") + File.separator + appName + File.separator;
+    }
   }
 }
