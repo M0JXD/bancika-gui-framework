@@ -216,4 +216,22 @@ public class Utils {
       return System.getProperty("user.home") + File.separator + appName + File.separator;
     }
   }
+
+  // function to delete subdirectories and files (Thanks GFG)
+  public static void deleteDirectory(File file)
+  {
+      // store all the paths of files and folders present
+      // inside directory
+      for (File subfile : file.listFiles()) {
+
+          // if it is a subfolder,e.g Rohan and Ritik,
+          //  recursively call function to empty subfolder
+          if (subfile.isDirectory()) {
+              deleteDirectory(subfile);
+          }
+
+          // delete files and empty subfolders
+          subfile.delete();
+      }
+  }
 }
