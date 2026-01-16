@@ -209,8 +209,8 @@ public class Utils {
 
   public static String getUserDataDirectory(String appName) {
     // Check if the user has preferred a hidden directory
-    File hidden_check = new File(System.getProperty("user.home") + File.separator + "." + appName + File.separator + "USE_HIDDEN_DIR");
-    if (hidden_check.exists()) {
+    File hiddenCheck = new File(System.getProperty("user.home") + File.separator + "." + appName + File.separator + "USE_HIDDEN_DIR");
+    if (hiddenCheck.exists()) {
       return System.getProperty("user.home") + File.separator + "." + appName + File.separator;
     } else {
       return System.getProperty("user.home") + File.separator + appName + File.separator;
